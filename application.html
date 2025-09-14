@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Goma Vocational Training Centre - Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f8f9fa; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .container { max-width:1100px; margin:auto; }
+    .letterhead { display:flex; gap:1rem; align-items:center; margin-bottom:1rem; background:#fff;padding:1rem;border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+    .letterhead img{ max-width:110px; }
+    .letterhead h1{ margin:0; font-size:1.25rem; color:#003366; }
+    .letterhead p{ margin:0; color:#444; font-size:.95rem; }
+    .form-section { background:#fff; padding:1.25rem; margin-bottom:1.5rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    h2{ text-align:center; color:#004085; margin:0 0 .5rem 0; }
+    .hint{ text-align:center; color:#6c757d; margin-bottom:1rem; }
+    footer{ text-align:center; color:#555; margin-top:1.5rem; font-size:.9rem; }
+    .required { color:#d00; margin-left:.25rem; }
+    .note { background:#e9f7ef; border-left:4px solid #28a745; padding:10px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <div class="letterhead">
+      <img src="logo.jpg" alt="Goma Logo (replace logo.jpg)" />
+      <div>
+        <h1><b>Goma Vocational Training Centre</b></h1>
+        <p><b>Migori Town, Kamadaga Centre, Oruba Estate — P.O Box 171-40400</b></p>
+        <p style="color:#004085;"><b>Email: gomavocationalcentre@gmail.com | Tel: 0704 952 434 / 0796 834 440</b></p>
+      </div>
+    </div>
+
+    <h2>Application Form</h2>
+    <p class="hint">Fill required fields (*). Application fee Ksh 1,000 — Paybill: <strong>247247</strong> Account: <strong>834440</strong>.</p>
+
+    <form id="applicationForm" class="needs-validation" novalidate>
+      <!-- 1 Personal -->
+      <div class="form-section">
+        <h5>1. Personal Information</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Full name <span class="required">*</span></label>
+            <input id="fullName" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Date of birth <span class="required">*</span></label>
+            <input id="dob" type="date" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Gender <span class="required">*</span></label>
+            <select id="gender" class="form-select" required>
+              <option value="">-- Select --</option><option>Male</option><option>Female</option><option>Other</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Nationality <span class="required">*</span></label>
+            <input id="nationality" class="form-control" value="Kenyan" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">National ID / Passport <span class="required">*</span></label>
+            <input id="idNumber" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 Contact -->
+      <div class="form-section">
+        <h5>2. Contact Information</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Email <span class="required">*</span></label>
+            <input id="email" type="email" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone / WhatsApp <span class="required">*</span></label>
+            <input id="phone" class="form-control" placeholder="07XXXXXXXX" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Postal / Physical Address <span class="required">*</span></label>
+            <input id="address" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Residential -->
+      <div class="form-section">
+        <h5>3. Residential Information</h5>
+        <p class="small text-muted">Select County → Sub-county will populate. Ward / Location / Sub-location / Village are manual entries.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">County <span class="required">*</span></label>
+            <select id="county" class="form-select" required>
+              <option value="">-- Select County --</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Sub-County <span class="required">*</span></label>
+            <select id="subCounty" class="form-select" required disabled>
+              <option value="">-- Select Sub-County --</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Ward</label>
+            <input id="ward" class="form-control" placeholder="Enter ward">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Location</label>
+            <input id="location" class="form-control" placeholder="Enter location">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Sub-Location</label>
+            <input id="subLocation" class="form-control" placeholder="Enter sub-location">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Village</label>
+            <input id="village" class="form-control" placeholder="Enter village">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Education -->
+      <div class="form-section">
+        <h5>4. Educational Background</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Last School / Institution *</label>
+            <input id="lastSchool" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Level of Education *</label>
+            <select id="educationLevel" class="form-select" required>
+              <option value="">-- Select Level --</option>
+              <option>KCPE</option>
+              <option>KCSE</option>
+              <option>Certificate</option>
+              <option>Diploma</option>
+              <option>Degree</option>
+              <option>Masters</option>
+              <option>PhD</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Qualification *</label>
+            <input id="qualification" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Year Completed *</label>
+            <input id="yearCompleted" type="number" min="1900" max="2099" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Guardian -->
+      <div class="form-section">
+        <h5>5. Parent / Guardian</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Guardian name <span class="required">*</span></label>
+            <input id="guardianName" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Guardian contact <span class="required">*</span></label>
+            <input id="guardianContact" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Admission & course -->
+      <div class="form-section">
+        <h5>6. Admission & Course</h5>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Intended intake (month/year) <span class="required">*</span></label>
+            <input id="intake" type="month" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Mode of Study <span class="required">*</span></label>
+            <select id="modeOfStudy" class="form-select" required>
+              <option value="">-- Select --</option>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Online / Distance Learning</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Mode of Payment <span class="required">*</span></label>
+            <select id="paymentMode" class="form-select" required>
+              <option value="">-- Select --</option>
+              <option value="mpesa">M-Pesa</option>
+              <option value="bank">Bank Transfer</option>
+              <option value="cash">Cash</option>
+              <option value="scholarship">Scholarship</option>
+              <option value="installments">Installments</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Preferred Course <span class="required">*</span></label>
+            <select id="course" class="form-select" required>
+              <option value="">-- Select Course --</option>
+              <optgroup label="ICT & Media">
+                <option>CCTV Installation</option>
+                <option>Graphics & Design</option>
+                <option>Garments Digital Branding</option>
+                <option>Online Marketing</option>
+                <option>Entrepreneurship</option>
+                <option>MS Office Packages & Internet</option>
+                <option>Web Development & Graphic Design</option>
+                <option>Computer Programming</option>
+                <option>Computer Hardware Maintenance</option>
+              </optgroup>
+              <optgroup label="Mechanical & Workshop">
+                <option>Welding & Fabrication</option>
+                <option>General Fitting</option>
+                <option>CNC Lathe & Milling</option>
+              </optgroup>
+              <optgroup label="Building & Construction">
+                <option>Carpentry & Joinery</option>
+                <option>Plumbing & Pipefitting</option>
+                <option>Tiling</option>
+                <option>Masonry</option>
+              </optgroup>
+              <optgroup label="Hospitality / Fashion / Business">
+                <option>Fashion Design & Garment Making</option>
+                <option>Hairdressing & Beauty Therapy</option>
+                <option>Business Management</option>
+                <option>Accounting</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 Payment instructions (M-Pesa) -->
+      <div id="paymentInstructions" class="form-section" style="display:none;">
+        <h5>Payment Instructions (M-Pesa)</h5>
+        <div class="note">
+          <p><strong>Application Fee:</strong> Ksh. 1,000/=</p>
+          <p><strong>Lipa Na M-Pesa Paybill:</strong> <strong>247247</strong></p>
+          <p><strong>Account No:</strong> <strong>834440</strong></p>
+          <p>After payment, enter the M-Pesa transaction code below (e.g. ABC123XYZ) so we can confirm your payment.</p>
+        </div>
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <label class="form-label">M-Pesa Transaction Code <span id="mpesaCodeLabel" class="required" style="display:none;">*</span></label>
+            <input id="mpesaCode" class="form-control" placeholder="Enter M-Pesa transaction code (required if M-Pesa)" >
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Additional notes -->
+      <div class="form-section">
+        <h5>7. Additional Information (optional)</h5>
+        <textarea id="notes" class="form-control" rows="3" placeholder="Any special notes, sponsor name, medical notes, etc."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center mb-3">
+        <button type="submit" id="waSubmit" class="btn btn-success btn-lg me-2">Submit via WhatsApp</button>
+        <button type="button" id="emailSubmit" class="btn btn-primary btn-lg">Submit via Email</button>
+      </div>
+    </form>
+
+    <footer>&copy; 2025 Goma Vocational Training Centre • Migori Town</footer>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    try {
+      // WhatsApp number (no leading +)
+      const WHATSAPP_NUMBER = "254796834440";
+
+      // safe list as array: [county, [subcounties...]]
+      const KENYA_ENTRIES = [
+        ["Baringo", ["Baringo Central","Baringo North","Baringo South","Eldama Ravine","Mogotio","Tiaty"]],
+        ["Bomet", ["Bomet Central","Bomet East","Chepalungu","Konoin","Sotik"]],
+        ["Bungoma", ["Bumula","Kabuchai","Kanduyi","Kimilili","Mt Elgon","Sirisia","Tongaren","Webuye East","Webuye West"]],
+        ["Busia", ["Budalangi","Butula","Funyula","Matayos","Nambale","Teso North","Teso South"]],
+        ["Elgeyo-Marakwet", ["Keiyo North","Keiyo South","Marakwet East","Marakwet West"]],
+        ["Embu", ["Manyatta","Mbeere North","Mbeere South","Runyenjes"]],
+        ["Garissa", ["Balambala","Dadaab","Fafi","Garissa Township","Hulugho","Ijara","Lagdera"]],
+        ["Homa Bay", ["Homa Bay Town","Kabondo Kasipul","Karachuonyo","Kasipul","Mbita","Ndhiwa","Rangwe","Suba"]],
+        ["Isiolo", ["Isiolo","Garbatulla","Merti"]],
+        ["Kajiado", ["Isinya","Kajiado Central","Kajiado East","Kajiado North","Kajiado West","Loitokitok"]],
+        ["Kakamega", ["Butere","Ikolomani","Khwisero","Likuyani","Lugari","Lurambi","Malava","Matungu","Mumias East","Mumias West","Navakholo","Shinyalu"]],
+        ["Kericho", ["Ainamoi","Belgut","Bureti","Kipkelion East","Kipkelion West","Sigowet-Soin"]],
+        ["Kiambu", ["Gatundu North","Gatundu South","Githunguri","Juja","Kabete","Kiambaa","Kiambu Town","Kikuyu","Lari","Limuru","Ruiru","Thika Town"]],
+        ["Kilifi", ["Ganze","Kaloleni","Kilifi North","Kilifi South","Magarini","Malindi","Rabai"]],
+        ["Kirinyaga", ["Gichugu","Kirinyaga Central","Mwea East","Mwea West","Ndia"]],
+        ["Kisii", ["Bobasi","Bomachoge Borabu","Bomachoge Chache","Kitutu Chache North","Kitutu Chache South","Nyaribari Chache","Nyaribari Masaba","South Mugirango"]],
+        ["Kisumu", ["Kisumu Central","Kisumu East","Kisumu West","Muhoroni","Nyakach","Nyando","Seme"]],
+        ["Kitui", ["Kitui Central","Kitui East","Kitui Rural","Kitui South","Kitui West","Mwingi Central","Mwingi North","Mwingi West"]],
+        ["Kwale", ["Kinango","Lungalunga","Matuga","Msambweni"]],
+        ["Laikipia", ["Laikipia East","Laikipia North","Laikipia West"]],
+        ["Lamu", ["Lamu East","Lamu West"]],
+        ["Machakos", ["Kangundo","Kathiani","Machakos Town","Masinga","Matungulu","Mavoko","Mwala","Yatta"]],
+        ["Makueni", ["Kaiti","Kibwezi East","Kibwezi West","Kilome","Makueni","Mbooni"]],
+        ["Mandera", ["Banissa","Lafey","Mandera East","Mandera North","Mandera South","Mandera West"]],
+        ["Marsabit", ["Laisamis","Moyale","North Horr","Saku"]],
+        ["Meru", ["Buuri","Igembe Central","Igembe North","Igembe South","Imenti Central","Imenti North","Imenti South","Tigania East","Tigania West"]],
+        ["Migori", ["Awendo","Kuria East","Kuria West","Nyatike","Rongo","Suna East","Suna West","Uriri"]],
+        ["Mombasa", ["Changamwe","Jomvu","Kisauni","Likoni","Mvita","Nyali"]],
+        ["Murang'a", ["Gatanga","Kandara","Kangema","Kigumo","Kiharu","Maragwa","Mathioya"]],
+        ["Nairobi", ["Dagoretti North","Dagoretti South","Embakasi Central","Embakasi East","Embakasi North","Embakasi South","Embakasi West","Kamukunji","Kasarani","Kibra","Langata","Makadara","Mathare","Roysambu","Ruaraka","Starehe","Westlands"]],
+        ["Nakuru", ["Bahati","Gilgil","Kuresoi North","Kuresoi South","Molo","Naivasha","Nakuru Town East","Nakuru Town West","Njoro","Rongai","Subukia"]],
+        ["Nandi", ["Aldai","Chesumei","Emgwen","Mosop","Nandi Hills","Tinderet"]],
+        ["Narok", ["Emurua Dikirr","Kilgoris","Narok East","Narok North","Narok South","Narok West"]],
+        ["Nyamira", ["Borabu","Kitutu Masaba","North Mugirango","West Mugirango"]],
+        ["Nyandarua", ["Kinangop","Ndaragwa","Ol Kalou","Ol Jorok"]],
+        ["Nyeri", ["Kieni East","Kieni West","Mathira East","Mathira West","Mukurweini","Nyeri Town","Othaya","Tetu"]],
+        ["Samburu", ["Samburu East","Samburu North","Samburu West"]],
+        ["Siaya", ["Alego Usonga","Bondo","Gem","Rarieda","Ugenya","Ugunja"]],
+        ["Taita-Taveta", ["Mwatate","Taveta","Voi","Wundanyi"]],
+        ["Tana River", ["Bura","Galole","Garsen"]],
+        ["Tharaka-Nithi", ["Chuka/Igambang'ombe","Maara","Tharaka"]],
+        ["Trans-Nzoia", ["Cherangany","Endebess","Kiminini","Kwanza","Saboti"]],
+        ["Turkana", ["Loima","Turkana Central","Turkana East","Turkana North","Turkana South","Turkana West"]],
+        ["Uasin Gishu", ["Ainabkoi","Kapseret","Kesses","Moiben","Soy","Turbo"]],
+        ["Vihiga", ["Emuhaya","Hamisi","Luanda","Sabatia","Vihiga"]],
+        ["Wajir", ["Eldas","Tarbaj","Wajir East","Wajir North","Wajir South","Wajir West"]],
+        ["West Pokot", ["Kacheliba","Kapenguria","Pokot South","Sigor"]]
+      ];
+
+      // convert to object map
+      const KENYA = Object.fromEntries(KENYA_ENTRIES.map(([c, subs]) => [c, subs]));
+
+      // DOM refs
+      const countySel = document.getElementById('county');
+      const subCountySel = document.getElementById('subCounty');
+      const paymentMode = document.getElementById('paymentMode');
+      const paymentInstructions = document.getElementById('paymentInstructions');
+      const mpesaCodeInput = document.getElementById('mpesaCode');
+      const mpesaCodeLabel = document.getElementById('mpesaCodeLabel');
+
+      // populate counties
+      const countyNames = Object.keys(KENYA).sort((a,b)=>a.localeCompare(b));
+      countyNames.forEach(c => countySel.appendChild(Object.assign(document.createElement('option'), { value:c, textContent:c })));
+
+      // when county changes populate subcounties
+      countySel.addEventListener('change', function(){
+        const c = countySel.value;
+        subCountySel.innerHTML = '';
+        subCountySel.appendChild(Object.assign(document.createElement('option'), { value:'', textContent:'-- Select Sub-County --' }));
+        if(!c){ subCountySel.disabled = true; return; }
+        const subs = KENYA[c] || [];
+        subs.sort((a,b)=>a.localeCompare(b)).forEach(sc => subCountySel.appendChild(Object.assign(document.createElement('option'), { value:sc, textContent:sc })));
+        subCountySel.disabled = false;
+      });
+
+      // show M-Pesa instructions if payment selected
+      paymentMode.addEventListener('change', function() {
+        if(this.value === 'mpesa') {
+          paymentInstructions.style.display = 'block';
+          mpesaCodeInput.required = true;
+          mpesaCodeLabel.style.display = 'inline';
+        } else {
+          paymentInstructions.style.display = 'none';
+          mpesaCodeInput.required = false;
+          mpesaCodeLabel.style.display = 'none';
+        }
+      });
+
+      // form submit -> WhatsApp
+      document.getElementById('applicationForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        // basic validation
+        if(!this.checkValidity()){
+          this.classList.add('was-validated');
+          alert('Please fill all required fields.');
+          return;
+        }
+
+        // collect values
+        const payload = {
+          "Full name": document.getElementById('fullName').value || '-',
+          "Date of birth": document.getElementById('dob').value || '-',
+          "Gender": document.getElementById('gender').value || '-',
+          "Nationality": document.getElementById('nationality').value || '-',
+          "ID/Passport": document.getElementById('idNumber').value || '-',
+          "Email": document.getElementById('email').value || '-',
+          "Phone": document.getElementById('phone').value || '-',
+          "Address": document.getElementById('address').value || '-',
+          "County": countySel.value || '-',
+          "Sub-County": subCountySel.value || '-',
+          "Ward": document.getElementById('ward').value || '-',
+          "Location": document.getElementById('location').value || '-',
+          "Sub-Location": document.getElementById('subLocation').value || '-',
+          "Village": document.getElementById('village').value || '-',
+          "Last School": document.getElementById('lastSchool').value || '-',
+          "Level of Education": document.getElementById('educationLevel').value || '-',
+          "Qualification": document.getElementById('qualification').value || '-',
+          "Year Completed": document.getElementById('yearCompleted').value || '-',
+          "Guardian Name": document.getElementById('guardianName').value || '-',
+          "Guardian Contact": document.getElementById('guardianContact').value || '-',
+          "Intended Intake": document.getElementById('intake').value || '-',
+          "Mode of Study": document.getElementById('modeOfStudy').value || '-',
+          "Payment Mode": document.getElementById('paymentMode').value || '-',
+          "M-Pesa Code": mpesaCodeInput.value || '-',
+          "Preferred Course": document.getElementById('course').value || '-',
+          "Additional Notes": document.getElementById('notes').value || '-'
+        };
+
+        // build whatsapp message
+        let lines = ['*GOMA VOCATIONAL TRAINING CENTRE - APPLICATION*',''];
+        for(const [k,v] of Object.entries(payload)) lines.push(`${k}: ${v}`);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(waUrl, '_blank');
+      });
+
+      // email submit via mailto (simple)
+      document.getElementById('emailSubmit').addEventListener('click', function(){
+        // build body
+        const fieldsOrder = [
+          'Full name','Date of birth','Gender','Nationality','ID/Passport','Email','Phone','Address',
+          'County','Sub-County','Ward','Location','Sub-Location','Village',
+          'Last School','Level of Education','Qualification','Year Completed',
+          'Guardian Name','Guardian Contact','Intended Intake','Mode of Study','Payment Mode','M-Pesa Code','Preferred Course','Additional Notes'
+        ];
+        let bodyLines = [];
+        fieldsOrder.forEach(name => {
+          // map to element ids where possible
+          let val = '-';
+          switch(name){
+            case 'Full name': val = document.getElementById('fullName').value; break;
+            case 'Date of birth': val = document.getElementById('dob').value; break;
+            case 'Gender': val = document.getElementById('gender').value; break;
+            case 'Nationality': val = document.getElementById('nationality').value; break;
+            case 'ID/Passport': val = document.getElementById('idNumber').value; break;
+            case 'Email': val = document.getElementById('email').value; break;
+            case 'Phone': val = document.getElementById('phone').value; break;
+            case 'Address': val = document.getElementById('address').value; break;
+            case 'County': val = document.getElementById('county').value; break;
+            case 'Sub-County': val = document.getElementById('subCounty').value; break;
+            case 'Ward': val = document.getElementById('ward').value; break;
+            case 'Location': val = document.getElementById('location').value; break;
+            case 'Sub-Location': val = document.getElementById('subLocation').value; break;
+            case 'Village': val = document.getElementById('village').value; break;
+            case 'Last School': val = document.getElementById('lastSchool').value; break;
+            case 'Level of Education': val = document.getElementById('educationLevel').value; break;
+            case 'Qualification': val = document.getElementById('qualification').value; break;
+            case 'Year Completed': val = document.getElementById('yearCompleted').value; break;
+            case 'Guardian Name': val = document.getElementById('guardianName').value; break;
+            case 'Guardian Contact': val = document.getElementById('guardianContact').value; break;
+            case 'Intended Intake': val = document.getElementById('intake').value; break;
+            case 'Mode of Study': val = document.getElementById('modeOfStudy').value; break;
+            case 'Payment Mode': val = document.getElementById('paymentMode').value; break;
+            case 'M-Pesa Code': val = mpesaCodeInput.value; break;
+            case 'Preferred Course': val = document.getElementById('course').value; break;
+            case 'Additional Notes': val = document.getElementById('notes').value; break;
+          }
+          bodyLines.push(`${name}: ${val || '-'}`);
+        });
+
+        const subject = encodeURIComponent('New Application - Goma Vocational Training Centre');
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        // opens default email client
+        window.location.href = `mailto:gomavocationalcentre@gmail.com?subject=${subject}&body=${body}`;
+      });
+
+      console.log('Form initialized. Counties loaded:', countyNames.length);
+
+    } catch (err) {
+      console.error('Initialization error:', err);
+      alert('An error occurred initializing the form. See console for details.');
+    }
+  });
+  </script>
+</body>
+</html>
